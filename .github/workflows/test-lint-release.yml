@@ -106,8 +106,7 @@ jobs:
               'next',
               'next-major',
               {name: 'beta', prerelease: true},
-              {name: 'alpha', prerelease: true},
-              release
+              {name: 'alpha', prerelease: true}
             ]
         env:
           GITHUB_TOKEN: ${{ secrets.A_GITHUB_TOKEN }}

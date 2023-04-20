@@ -1,12 +1,13 @@
 {
-  "name": "@askui/eslint-plugin",
-  "version": "0.0.1",
+  "name": "eslint-plugin-askui",
+  "version": "0.0.2",
   "description": "Validate correct usage of askui library",
   "keywords": [
     "eslint",
     "eslintplugin",
     "eslint-plugin"
   ],
+  "repository": "https://github.com/JohannesDienst-askui/eslint-plugin-askui",
   "author": "Johannes Dienst",
   "main": "./lib/index.js",
   "exports": "./lib/index.js",

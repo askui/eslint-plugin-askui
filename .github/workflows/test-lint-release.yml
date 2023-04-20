@@ -6,6 +6,10 @@ on:
       - release
   pull_request:
 
+env:
+  NODE_VERSION: 18
+  RELEASE_COMMAND: ${{ github.event.inputs.prerelease == 'true' &&  'release:prerelease' || 'release' }} -- ${{ github.event.inputs.release-it-options }}
+
 jobs:
   lint:
     name: ⬣ Lint
@@ -72,22 +76,22 @@ jobs:
       - name: ⬆️ Upload coverage report
         uses: codecov/codecov-action@v3
 
-  release:
-    name: 🚀 Release
-    needs: [lint, test]
-    runs-on: ubuntu-latest
-    if:
-      github.repository == 'JohannesDienst-askui/eslint-plugin-askui' &&
-      contains('refs/heads/main', github.ref) &&
-      github.event_name == 'push'
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: https://registry.npmjs.org/
-      - run: npm install
-      - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+  # release:
+  #   name: 🚀 Release
+  #   needs: [lint, test]
+  #   runs-on: ubuntu-latest
+  #   if:
+  #     github.repository == 'JohannesDienst-askui/eslint-plugin-askui' &&
+  #     contains('refs/heads/main', github.ref) &&
+  #     github.event_name == 'push'
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 18
+  #         registry-url: https://registry.npmjs.org/
+  #     - run: npm install
+  #     - run: npm publish --access public
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 

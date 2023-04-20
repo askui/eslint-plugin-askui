@@ -101,6 +101,7 @@ jobs:
           semantic_version: 19
           branches: |
             [
+              main,
               release
             ]
         env:

@@ -1,0 +1,115 @@
+name: test-lint-release
+on:
+  push:
+    branches:
+      - main
+      - release
+  pull_request:
+
+jobs:
+  lint:
+    name: ⬣ Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📥 Install dependencies
+        run: npm install
+
+      - name: ▶️ Run lint script
+        run: npm run lint
+
+  test:
+    name:
+      🧪 Test (Node@${{ matrix.node }} - ESLint@${{ matrix.eslint }} - ${{
+      matrix.os }})
+    strategy:
+      matrix:
+        eslint: [8]
+        node: [12.22.0, 12, 14.17.0, 14, 16.0.0, 16, 18]
+        os: [ubuntu-latest]
+        include:
+          # On other platforms
+          - os: windows-latest
+            eslint: 8
+            node: 18
+          - os: macos-latest
+            eslint: 8
+            node: 18
+          # On old ESLint versions
+          - eslint: 7
+            node: 18
+            os: ubuntu-latest
+          # On the minimum supported ESLint/Node.js version
+          - eslint: 7.0.0
+            node: 12.22.0
+            os: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup Node v${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          cache: npm
+          node-version: ${{ matrix.node }}
+
+      - name: 📥 Install dependencies
+        run: npm ci
+
+      - name: 📥 Install ESLint v${{ matrix.eslint }}
+        run: npm install eslint@${{ matrix.eslint }}
+
+      - name: ▶️ Run test script
+        run: npm run test -- --runInBand
+
+      - name: ⬆️ Upload coverage report
+        uses: codecov/codecov-action@v3
+
+  release:
+    name: 🚀 Release
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+    if:
+      github.repository == 'JohannesDienst-askui/eslint-plugin-askui' &&
+      contains('refs/heads/release) &&
+      github.event_name == 'push'
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📥 Install dependencies
+        run: npm install
+
+      - name: 🚀 Release
+        uses: cycjimmy/semantic-release-action@v3
+        with:
+          semantic_version: 19
+          branches: |
+            [
+              release
+            ]
+        env:
+          GITHUB_TOKEN: ${{ secrets.A_GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -78,38 +78,16 @@ jobs:
     runs-on: ubuntu-latest
     if:
       github.repository == 'JohannesDienst-askui/eslint-plugin-askui' &&
-      contains('refs/heads/main,refs/heads/release,refs/heads/next,refs/heads/beta,refs/heads/alpha', github.ref) &&
+      contains('refs/heads/main', github.ref) &&
       github.event_name == 'push'
     steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
-
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
-
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
-
-      - name: 📥 Install dependencies
-        run: npm install
-
-      - name: 🚀 Release
-        uses: cycjimmy/semantic-release-action@v3
-        with:
-          semantic_version: 19
-          branches: |
-            [
-              '+([0-9])?(.{+([0-9]),x}).x',
-              'main',
-              'next',
-              'next-major',
-              {name: 'beta', prerelease: true},
-              {name: 'alpha', prerelease: true}
-            ]
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - run: npm publish --access public
         env:
-          # GITHUB_TOKEN: ${{ secrets.A_GITHUB_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+

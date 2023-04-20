@@ -109,5 +109,7 @@ jobs:
               {name: 'alpha', prerelease: true}
             ]
         env:
-          GITHUB_TOKEN: ${{ secrets.A_GITHUB_TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.A_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

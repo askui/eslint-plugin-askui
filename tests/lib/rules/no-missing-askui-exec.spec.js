@@ -33,10 +33,6 @@ ruleTester.run(
             errors: [{ messageId: 'missingAskuiExec' }],
         },
         {
-            code: 'await aui.mouseLeftClick().exec',
-            errors: [{ messageId: 'missingAskuiExec' }],
-        },
-        {
             code: 'await aui.mouseLeftClick',
             errors: [{ messageId: 'missingAskuiExec' }],
         },

@@ -10,6 +10,36 @@ ruleTester.run(
     {
     valid: [
         {
+            code: 'await aui.click().button().exec()',
+        },
+        {
+            code: 'await aui.click().exec()',
+        },
+        {
+            code: 'await aui.click().button().withText("42").exec()',
+        },
+
+        {
+            code: 'await aui.expect().button().exists().exec()',
+        },
+        {
+            code: 'await aui.expect().exec()',
+        },
+        {
+            code: 'await aui.expect().button().withText("42").exists().exec()',
+        },
+
+        {
+            code: 'await aui.mouseDoubleLeftClick().button().exec()',
+        },
+        {
+            code: 'await aui.mouseDoubleLeftClick().exec()',
+        },
+        {
+            code: 'await aui.mouseDoubleLeftClick().button().withText("42").exec()',
+        },
+
+        {
             code: 'await aui.mouseLeftClick().button().exec()',
         },
         {
@@ -38,6 +68,27 @@ ruleTester.run(
         },
         {
             code: 'await aui.mouseLeftClick()',
+            errors: [{ messageId: 'missingAskuiExec' }],
+        },
+
+        {
+            code: 'await aui.click().button().exec',
+            errors: [{ messageId: 'missingAskuiExec' }],
+        },
+        {
+            code: 'await aui.click().exec',
+            errors: [{ messageId: 'missingAskuiExec' }],
+        },
+        {
+            code: 'await aui.click().button().withText("42").exec',
+            errors: [{ messageId: 'missingAskuiExec' }],
+        },
+        {
+            code: 'await aui.click',
+            errors: [{ messageId: 'missingAskuiExec' }],
+        },
+        {
+            code: 'await aui.click()',
             errors: [{ messageId: 'missingAskuiExec' }],
         }
     ]

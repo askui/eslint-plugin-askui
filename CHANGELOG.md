@@ -1,5 +1,7 @@
 # Changelog
 
+### [1.0.1](https://github.com/JohannesDienst-askui/eslint-plugin-askui/compare/1.2.0...1.0.1) (2023-07-12)
+
 ## 1.2.0 (2023-07-12)
 
 

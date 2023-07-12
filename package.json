@@ -16,6 +16,7 @@
     "lint:eslint-docs": "npm-run-all \"update:eslint-docs -- --check\"",
     "lint:js": "eslint .",
     "test": "mocha tests --recursive",
+    "release": "release-it",
     "update:eslint-docs": "eslint-doc-generator"
   },
   "dependencies": {

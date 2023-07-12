@@ -1,0 +1,30 @@
+{
+    "hooks": {
+        "after:bump": [
+            "npm install; npm run build"
+        ]
+    },
+    "git": {
+        "addUntrackedFiles": true,
+        "commitMessage": "chore: release ${version}",
+        "requireCommits": true,
+        "requireBranch": ["main", "*.*.x"],
+        "requireCleanWorkingDir ": false
+    },
+    "github": {
+        "release": true,
+        "releaseName": "v${version}"
+    },
+    "npm": {
+        "publishPath": "./",
+        "skipChecks": true
+    },
+    "plugins": {
+        "@release-it/conventional-changelog": {
+            "header": "# Changelog",
+            "preset": "conventionalcommits",
+            "infile": "CHANGELOG.md",
+            "strictSemVer": true
+        }
+    }
+}

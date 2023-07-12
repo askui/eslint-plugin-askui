@@ -10,10 +10,10 @@ You'll first need to install [ESLint](https://eslint.org/):
 npm i eslint --save-dev
 ```
 
-Next, install `eslint-plugin-askui`:
+Next, install `@askui/eslint-plugin-askui`:
 
 ```sh
-npm install eslint-plugin-askui --save-dev
+npm install @askui/eslint-plugin-askui --save-dev
 ```
 
 ## Usage

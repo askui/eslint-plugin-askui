@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/askui/eslint-plugin-askui/compare/1.0.1...1.1.0) (2024-04-24)
+
+
+### Features
+
+* Add rule for validation of expect() instructions ([7b83892](https://github.com/askui/eslint-plugin-askui/commit/7b8389234fb5dc0df856a8ff307f671c1ccf284e))
+
 ### [1.0.1](https://github.com/JohannesDienst-askui/eslint-plugin-askui/compare/1.2.0...1.0.1) (2023-07-12)
 
 ## 1.2.0 (2023-07-12)

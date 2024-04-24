@@ -18,12 +18,12 @@ npm install @askui/eslint-plugin-askui --save-dev
 
 ## Usage
 
-Add `askui` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `@askui/askui` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
 ```json
 {
     "plugins": [
-        "askui"
+        "@askui/askui"
     ]
 }
 ```
@@ -34,8 +34,8 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "askui/no-missing-askui-exec": "error",
-        "askui/correct-askui-expect-usage": "error"
+        "@askui/askui/no-missing-askui-exec": "error",
+        "@askui/askui/correct-askui-expect-usage": "error"
     }
 }
 ```
@@ -44,10 +44,10 @@ Then configure the rules you want to use under the rules section.
 
 <!-- begin auto-generated rules list -->
 
-| Name                                                         |
-| :----------------------------------------------------------- |
-| [no-missing-askui-exec](docs/rules/no-missing-askui-exec.md) |
+| Name                                                                   |
+| :--------------------------------------------------------------------- |
 | [correct-askui-expect-usage](docs/rules/correct-askui-expect-usage.md) |
+| [no-missing-askui-exec](docs/rules/no-missing-askui-exec.md)           |
 
 <!-- end auto-generated rules list -->
 

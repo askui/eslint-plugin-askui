@@ -38,7 +38,6 @@ ruleTester.run(
         {
             code: 'await aui.mouseDoubleLeftClick().button().withText("42").exec()',
         },
-
         {
             code: 'await aui.mouseLeftClick().button().exec()',
         },
@@ -70,7 +69,6 @@ ruleTester.run(
             code: 'await aui.mouseLeftClick()',
             errors: [{ messageId: 'missingAskuiExec' }],
         },
-
         {
             code: 'await aui.click().button().exec',
             errors: [{ messageId: 'missingAskuiExec' }],
@@ -90,6 +88,6 @@ ruleTester.run(
         {
             code: 'await aui.click()',
             errors: [{ messageId: 'missingAskuiExec' }],
-        }
+        },
     ]
 });

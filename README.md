@@ -34,7 +34,8 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "askui/no-missing-askui-exec": "error"
+        "askui/no-missing-askui-exec": "error",
+        "askui/correct-askui-expect-usage": "error"
     }
 }
 ```
@@ -46,6 +47,7 @@ Then configure the rules you want to use under the rules section.
 | Name                                                         |
 | :----------------------------------------------------------- |
 | [no-missing-askui-exec](docs/rules/no-missing-askui-exec.md) |
+| [correct-askui-expect-usage](docs/rules/correct-askui-expect-usage.md) |
 
 <!-- end auto-generated rules list -->
 

@@ -1,5 +1,7 @@
 # Changelog
 
+## [1.3.0](https://github.com/askui/eslint-plugin-askui/compare/1.1.1...1.3.0) (2024-04-25)
+
 ## [1.1.1](https://github.com/askui/eslint-plugin-askui/compare/1.1.0...1.1.1) (2024-04-24)
 
 ## [1.1.0](https://github.com/askui/eslint-plugin-askui/compare/1.0.1...1.1.0) (2024-04-24)

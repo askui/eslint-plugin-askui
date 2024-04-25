@@ -1,11 +1,11 @@
-// no-missing-askui-exec.spec.js
+// no-missing-exec.spec.js
 const { RuleTester } = require('eslint');
-const noMissingAskuiExecRule = require('../../../lib/rules/no-missing-askui-exec.js');
+const noMissingAskuiExecRule = require('../../../lib/rules/no-missing-exec.js');
 const ruleTester = new RuleTester({
     parser: require.resolve('@typescript-eslint/parser'), // eslint-disable-line
   });
 ruleTester.run(
-    'no-missing-askui-exec',
+    'no-missing-exec',
     noMissingAskuiExecRule,
     {
     valid: [

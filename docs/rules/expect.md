@@ -1,3 +1,3 @@
-# @askui/askui/no-missing-askui-exec
+# @askui/askui/expect
 
 <!-- end auto-generated rule header -->

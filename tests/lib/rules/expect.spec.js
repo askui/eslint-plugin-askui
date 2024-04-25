@@ -1,11 +1,11 @@
-// no-missing-askui-exec.spec.js
+// expect.spec.js
 const { RuleTester } = require('eslint');
-const correctAskuiExpectUsageRule = require('../../../lib/rules/correct-askui-expect-usage.js');
+const correctAskuiExpectUsageRule = require('../../../lib/rules/expect.js');
 const ruleTester = new RuleTester({
     parser: require.resolve('@typescript-eslint/parser'), // eslint-disable-line
   });
 ruleTester.run(
-    'correct-askui-expect-usage',
+    'expect',
     correctAskuiExpectUsageRule,
     {
     valid: [
